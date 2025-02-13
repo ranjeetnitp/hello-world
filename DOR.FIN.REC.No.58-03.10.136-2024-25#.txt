@@ -1,0 +1,43 @@
+(description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.ap-mumbai-1.oraclecloud.com))(connect_data=(service_name=besfcepoefcnjk5_springtraining_high.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))
+
+
+String url =
+"jdbc:oracle:thin:@(DESC IPTION=(ADD ESS=(P OTOCOL=tcps)(HOST=servernam
+e)(PO T=2484))(CONNECT_DATA=(SE VICE_NAME=servicename)))";
+Properties props = new Properties();
+props.setProperty("user", "scott");
+props.setProperty("password", "tiger");
+props.setProperty("oracle.net.ssl_cipher_suites",
+"(SSL_DH_anon_WITH_3DES_EDE_CBC_SHA, SSL_DH_anon_WITH_ C4_128_MD5,
+SSL_DH_anon_WITH_DES_CBC_SHA)");
+Connection conn=DriverManager.getConnection(url,props);
+
+
+
+dbname_high= (description=
+      (address=(protocol=tcps)(port=1522)(host=adb.example.oraclecloud.com))
+      (connect_data=(service_name=dbname_high.oraclecloud.com))(security=(ssl_server_dn_match=yes)))
+
+
+DB_URL="jdbc:oracle:thin:@dbname_high?TNS_ADMIN=C:\\Users\\test\\wallet_dbname"
+
+
+DB_URL="jdbc:oracle:thin:@dbname_high?TNS_ADMIN=/Users/test/wallet_dbname"
+
+oracle.net.wallet_location=(SOURCE=(METHOD=FILE)(METHOD_DATA=(DIRECTORY=${TNS_ADMIN})))
+
+
+DB_URL="jdbc:oracle:thin:@dbname_high?TNS_ADMIN=/Users/test/wallet_dbname"
+
+
+
+# Properties for using Java KeyStore (JKS)
+oracle.net.ssl_server_dn_match=true
+javax.net.ssl.trustStore==${TNS_ADMIN}/truststore.jks
+javax.net.ssl.trustStorePassword=password
+javax.net.ssl.keyStore==${TNS_ADMIN}/keystore.jks
+javax.net.ssl.keyStorePassword=password
+
+
+DB_URL="jdbc:oracle:thin:@dbname_high”
+security.provider.14=oracle.security.pki.OraclePKIProvider
